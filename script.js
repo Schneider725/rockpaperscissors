@@ -40,27 +40,27 @@ function playRound(humanChoice, computerChoice) {
         alert("tie")
     }
     else if (humanChoice == 1 && computerChoice == 0) {
-        alert("you win. paper beats rock")
+        alert("you win! paper beats rock!")
         humanScore++
     }
     else if (humanChoice == 2 && computerChoice == 0) {
-        alert("you lose")
+        alert("you lose...")
         computerScore++
     }
     else if (humanChoice == 0 && computerChoice == 1) {
-        alert("you lose")
+        alert("you lose...")
         computerScore++
     }
     else if (humanChoice == 2 && computerChoice == 1) {
-        alert("you win. scissors beats paper")
+        alert("you win! scissors beats paper!")
         humanScore++
     }
     else if (humanChoice == 0 && computerChoice == 2) {
-        alert("you win. rock beats scissors")
+        alert("you win! rock beats scissors!")
         humanScore++
     }
     else if (humanChoice == 1 && computerChoice == 2) {
-        alert("you lose")
+        alert("you lose...")
         computerScore++
     }
 
