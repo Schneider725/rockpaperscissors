@@ -16,21 +16,27 @@ function getComputerChoice() {
 }
 function getHumanChoice() {
     let ans = prompt("rock paper scissors SHOOT!")
-    ans = ans.toLocaleLowerCase()
+    ans = ans.toLowerCase()
     let humNum
-    if (ans === "rock") {
-        humNum = 0
+    while (true) {
+        if (ans === "rock") {
+            humNum = 0
+            break
+        }
+        else if (ans === "paper") {
+            humNum = 1
+            break
+        }
+        else if (ans === "scissors") {
+            humNum = 2
+            break
+        }
+        else {
+            alert("invalid input. try again")
+            ans = prompt("rock paper scissors SHOOT!")
+            ans = ans.toLowerCase()
+        }
     }
-    else if (ans === "paper") {
-        humNum = 1
-    }
-    else if (ans === "scissors") {
-        humNum = 2
-    }
-    else {
-        humNum = 3
-    }
-    console.log(humNum)
 
     return humNum
 }
@@ -43,14 +49,6 @@ function playRound(humanChoice, computerChoice) {
         alert("you win! paper beats rock!")
         humanScore++
     }
-    else if (humanChoice == 2 && computerChoice == 0) {
-        alert("you lose...")
-        computerScore++
-    }
-    else if (humanChoice == 0 && computerChoice == 1) {
-        alert("you lose...")
-        computerScore++
-    }
     else if (humanChoice == 2 && computerChoice == 1) {
         alert("you win! scissors beats paper!")
         humanScore++
@@ -59,7 +57,7 @@ function playRound(humanChoice, computerChoice) {
         alert("you win! rock beats scissors!")
         humanScore++
     }
-    else if (humanChoice == 1 && computerChoice == 2) {
+    else {
         alert("you lose...")
         computerScore++
     }
@@ -74,7 +72,7 @@ function game() {
         let computerSelection = getComputerChoice()
         playRound(humanSelection, computerSelection)
     }
-    if(humanScore > computerScore){
+    if (humanScore > computerScore) {
         alert("HUMANS WIN")
     }
     else {
