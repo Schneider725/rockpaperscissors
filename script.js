@@ -46,5 +46,17 @@ function playRound(humanChoice) {
         alert("you lose...")
         computerScore++
     }
+    if(humanScore > 1) {
+        alert("Human Wins!");
+        humanScore = 0;
+        computerScore = 0;
+    }
+    
+    if(computerScore > 1) {
+        alert("Computer Wins!") 
+        humanScore = 0;
+        computerScore = 0;
+    }
+    
     score.innerHTML = `Human : ${humanScore}  Computer : ${computerScore}`
 }
