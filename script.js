@@ -1,5 +1,15 @@
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissors = document.getElementById("scissors");
+const score = document.getElementById("score")
+
+rock.addEventListener("click", () => playRound(0));
+paper.addEventListener("click", () => playRound(1));
+scissors.addEventListener("click", () => playRound(2));
+
 let humanScore = 0
 let computerScore = 0
+
 
 function getComputerChoice() {
     let compNum = Math.floor(Math.random() * 3)
@@ -14,34 +24,9 @@ function getComputerChoice() {
     }
     return compNum
 }
-function getHumanChoice() {
-    let ans = prompt("rock paper scissors SHOOT!")
-    ans = ans.toLowerCase()
-    let humNum
-    while (true) {
-        if (ans === "rock") {
-            humNum = 0
-            break
-        }
-        else if (ans === "paper") {
-            humNum = 1
-            break
-        }
-        else if (ans === "scissors") {
-            humNum = 2
-            break
-        }
-        else {
-            alert("invalid input. try again")
-            ans = prompt("rock paper scissors SHOOT!")
-            ans = ans.toLowerCase()
-        }
-    }
 
-    return humNum
-}
-
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice) {
+    let computerChoice = getComputerChoice();
     if (humanChoice === computerChoice) {
         alert("tie")
     }
@@ -61,22 +46,5 @@ function playRound(humanChoice, computerChoice) {
         alert("you lose...")
         computerScore++
     }
-
-    alert(`Human : ${humanScore} Computer : ${computerScore}`)
-
+    score.innerHTML = `Human : ${humanScore}  Computer : ${computerScore}`
 }
-
-function game() {
-    for (let i = 0; i < 5; i++) {
-        let humanSelection = getHumanChoice()
-        let computerSelection = getComputerChoice()
-        playRound(humanSelection, computerSelection)
-    }
-    if (humanScore > computerScore) {
-        alert("HUMANS WIN")
-    }
-    else {
-        alert("ROBOTS WIN")
-    }
-}
-game()
